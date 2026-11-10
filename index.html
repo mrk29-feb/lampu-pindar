@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!--
+  Lampu Pindar: cek dulu sebelum pinjam
+  Hak Cipta (c) 2026 Muhammad Ramadhani Kesuma (mrk29)
+  Lab. Teknologi Keuangan, FEB Universitas Mulawarman, Samarinda
+  build: mrk29-v1.0
+-->
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lampu Pindar: cek dulu sebelum pinjam</title>
+<meta name="description" content="Periksa tawaran pinjaman online terhadap aturan OJK: wajar, mampu, legal. Plus kondisi kesehatan pindar di provinsi Anda.">
+<meta name="author" content="Muhammad Ramadhani Kesuma (mrk29)">
+<meta name="generator" content="mrk29-v1.0">
+<meta name="theme-color" content="#0b3a46">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="mrk29-app" data-build="mrk29-v1.0">
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#kalkulator" aria-label="Lampu Pindar, ke beranda">
+      <span class="lamp" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="brand-txt"><b>Lampu Pindar</b><small>Cek Dulu Sebelum Pinjam</small></span>
+    </a>
+    <nav class="tabs" aria-label="Menu utama">
+      <a href="#kalkulator" data-view="kalkulator">Cek Tawaran</a>
+      <a href="#bandingkan" data-view="bandingkan">Bandingkan</a>
+      <a href="#kesehatan" data-view="kesehatan">Kesehatan Pindar</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Navigasi bawah (ponsel) -->
+<nav class="bottomnav" aria-label="Menu utama ponsel">
+  <a href="#kalkulator" data-view="kalkulator"><svg viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="3"/><path d="M8.5 7h7M8.5 11.5h2M13.5 11.5h2M8.5 15.5h2M13.5 15.5h2"/></svg><span>Cek</span></a>
+  <a href="#bandingkan" data-view="bandingkan"><svg viewBox="0 0 24 24"><path d="M6 20V10M12 20V4M18 20v-7"/></svg><span>Banding</span></a>
+  <a href="#kesehatan" data-view="kesehatan"><svg viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></svg><span>Kesehatan</span></a>
+</nav>
+
+<main>
+
+<!-- ============ KALKULATOR ============ -->
+<section id="v-kalkulator" class="view" aria-labelledby="h-kalk">
+  <div class="hero"><div class="wrap">
+    <p class="eyebrow">Alat periksa independen berbasis aturan OJK</p>
+    <h1 id="h-kalk">Dapat tawaran pinjaman?<br><span class="hl">Nyalakan lampunya dulu.</span></h1>
+    <p class="lede">Masukkan angka dari tawaran yang Anda terima, baik dari aplikasi, SMS, maupun WhatsApp. Lampu Pindar membandingkannya dengan batas resmi OJK dan menjawab tiga hal: <b>Wajar?</b> <b>Mampu?</b> <b>Legal?</b></p>
+    <div class="examples" role="group" aria-label="Isi contoh">
+      <span>Coba contoh:</span>
+      <button type="button" class="chip" data-contoh="sms">Tawaran lewat SMS</button>
+      <button type="button" class="chip" data-contoh="cicil">Cicilan 6 bulan</button>
+      <button type="button" class="chip" data-contoh="ojk1">Contoh OJK: produktif</button>
+      <button type="button" class="chip" data-contoh="ojk2">Contoh OJK: konsumtif</button>
+    </div>
+  </div><svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34c120-22 240-22 360 0s240 22 360 0 240-22 360 0 240 22 360 0v26H0z"/></svg></div>
+
+  <div class="wrap kalk-grid">
+    <form id="f-kalk" class="card form" novalidate>
+      <fieldset>
+        <legend><span class="step">1</span> Tentang pinjaman</legend>
+        <div class="seg" role="radiogroup" aria-label="Jenis pinjaman">
+          <label><input type="radio" name="jenis" value="konsumtif" checked><span>Konsumtif<small>kebutuhan pribadi</small></span></label>
+          <label><input type="radio" name="jenis" value="produktif"><span>Produktif<small>modal usaha</small></span></label>
+        </div>
+        <label class="field">
+          <span>Nilai pinjaman di perjanjian</span>
+          <div class="money"><i>Rp</i><input name="P" inputmode="numeric" autocomplete="off" placeholder="2.000.000"></div>
+          <small>Angka pinjaman yang tertulis di perjanjian, sebelum dipotong apa pun.</small>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="step">2</span> Biaya dari tawaran</legend>
+        <p class="hint">Pilih sesuai informasi yang Anda pegang. Ketiganya dihitung dengan rumus yang sama.</p>
+        <div class="seg seg-3" role="radiogroup" aria-label="Cara mengisi biaya">
+          <label><input type="radio" name="mode" value="total" checked><span>Saya tahu<br>total bayarnya</span></label>
+          <label><input type="radio" name="mode" value="cicilan"><span>Saya tahu<br>cicilannya</span></label>
+          <label><input type="radio" name="mode" value="rincian"><span>Saya punya<br>rinciannya</span></label>
+        </div>
+
+        <div data-mode="total">
+          <label class="field">
+            <span>Total yang harus dibayar kembali</span>
+            <div class="money"><i>Rp</i><input name="B" inputmode="numeric" autocomplete="off" placeholder="2.200.000"></div>
+          </label>
+        </div>
+
+        <div data-mode="cicilan" hidden>
+          <div class="row2">
+            <label class="field">
+              <span>Besar cicilan</span>
+              <div class="money"><i>Rp</i><input name="c" inputmode="numeric" autocomplete="off" placeholder="400.000"></div>
+            </label>
+            <label class="field">
+              <span>Jumlah cicilan</span>
+              <div class="money"><input name="n" inputmode="numeric" autocomplete="off" placeholder="6"><i>kali</i></div>
+            </label>
+          </div>
+          <label class="field">
+            <span>Dibayar setiap</span>
+            <select name="frek">
+              <option value="30">bulan (30 hari)</option>
+              <option value="14">2 minggu (14 hari)</option>
+              <option value="7">minggu (7 hari)</option>
+            </select>
+          </label>
+        </div>
+
+        <div data-mode="rincian" hidden>
+          <label class="field">
+            <span>Bunga / margin / bagi hasil</span>
+            <div class="money"><i>Rp</i><input name="bunga" inputmode="numeric" autocomplete="off" placeholder="1.000.000"></div>
+          </label>
+          <div class="row2">
+            <label class="field">
+              <span>Biaya admin / fee platform</span>
+              <div class="money"><i>Rp</i><input name="admin" inputmode="numeric" autocomplete="off" placeholder="200.000"></div>
+            </label>
+            <label class="field">
+              <span>Biaya lain</span>
+              <div class="money"><i>Rp</i><input name="lain" inputmode="numeric" autocomplete="off" placeholder="50.000"></div>
+            </label>
+          </div>
+          <label class="check"><input type="checkbox" name="adminDipotong"> Biaya admin dipotong saat dana cair</label>
+          <small class="note">Menurut OJK, denda, biaya tanda tangan elektronik, dan pajak tidak termasuk biaya pinjaman.</small>
+        </div>
+
+        <div class="row2" data-tenor>
+          <label class="field">
+            <span>Tenor</span>
+            <div class="money"><input name="tenor" inputmode="numeric" autocomplete="off" placeholder="30"></div>
+          </label>
+          <label class="field">
+            <span>Satuan</span>
+            <select name="satuan"><option value="hari">hari</option><option value="bulan">bulan</option></select>
+          </label>
+        </div>
+
+        <label class="field" data-potongan>
+          <span>Potongan saat dana cair <em>opsional</em></span>
+          <div class="money"><i>Rp</i><input name="potongan" inputmode="numeric" autocomplete="off" placeholder="0"></div>
+          <small>Contoh: pinjam Rp2 juta, tetapi yang masuk ke rekening hanya Rp1,8 juta. Isi Rp200.000.</small>
+        </label>
+
+        <label class="field" data-carabayar>
+          <span>Cara pelunasan</span>
+          <select name="caraBayar">
+            <option value="akhir">Sekali bayar di akhir tenor</option>
+            <option value="bulanan">Dicicil rata setiap bulan</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="step">3</span> Kemampuan bayar <em>opsional</em></legend>
+        <label class="field">
+          <span>Penghasilan bersih per bulan</span>
+          <div class="money"><i>Rp</i><input name="penghasilan" inputmode="numeric" autocomplete="off" placeholder="4.500.000"></div>
+        </label>
+        <label class="field">
+          <span>Cicilan lain yang sedang berjalan, per bulan</span>
+          <div class="money"><i>Rp</i><input name="cicilanLain" inputmode="numeric" autocomplete="off" placeholder="0"></div>
+          <small>Jumlahkan semuanya: pindar lain, paylater, kartu kredit, KPR, kredit motor, pegadaian. OJK menghitung cicilan ke <b>seluruh</b> kreditur.</small>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="step">4</span> Ciri penyelenggara</legend>
+        <p class="hint">Angka saja tidak bisa membuktikan izin. Jawaban Anda di sini menentukan lampu <b>Legal?</b></p>
+        <ul class="legal-list" id="legal-list"></ul>
+      </fieldset>
+
+      <p class="privacy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11V5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Semua hitungan terjadi di perangkat Anda. Tidak ada data yang dikirim atau disimpan.</p>
+    </form>
+
+    <div id="hasil" class="hasil" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ============ BANDINGKAN ============ -->
+<section id="v-bandingkan" class="view" hidden aria-labelledby="h-band">
+  <div class="hero"><div class="wrap">
+    <p class="eyebrow">Mode banding</p>
+    <h1 id="h-band">Punya beberapa tawaran?<br><span class="hl">Bandingkan harganya.</span></h1>
+    <p class="lede">Seperti membandingkan harga per gram di rak supermarket, setiap tawaran diubah ke satu ukuran yang sama: <b>biaya per Rp100 ribu per hari</b> dari uang yang benar-benar Anda terima.</p>
+  </div><svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34c120-22 240-22 360 0s240 22 360 0 240-22 360 0 240 22 360 0v26H0z"/></svg></div>
+  <div class="wrap">
+    <div class="card">
+      <div class="seg compact" role="radiogroup" aria-label="Jenis pinjaman untuk perbandingan">
+        <label><input type="radio" name="bjenis" value="konsumtif" checked><span>Konsumtif</span></label>
+        <label><input type="radio" name="bjenis" value="produktif"><span>Produktif</span></label>
+      </div>
+      <div id="band-rows" class="band-rows"></div>
+      <button type="button" id="band-add" class="btn-ghost">+ Tambah tawaran</button>
+    </div>
+    <div id="band-hasil" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ============ KESEHATAN ============ -->
+<section id="v-kesehatan" class="view" hidden aria-labelledby="h-kes">
+  <div class="hero"><div class="wrap">
+    <p class="eyebrow">Kesehatan pindar per provinsi</p>
+    <h1 id="h-kes">Seberapa sehat utang pindar<br><span class="hl" id="kes-nama-h">di daerah Anda?</span></h1>
+    <p class="lede">Lampu ini membaca dua hal: <b>kualitas</b> pembayaran (TWP90) dan <b>laju</b> pertumbuhan utang. Pembayaran yang lancar belum tentu aman kalau utangnya melesat.</p>
+    <label class="field prov-pick">
+      <span>Pilih provinsi</span>
+      <select id="prov"></select>
+    </label>
+  </div><svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34c120-22 240-22 360 0s240 22 360 0 240-22 360 0 240 22 360 0v26H0z"/></svg></div>
+  <div class="wrap" id="kes-body"><div class="card empty"><p>Memuat data...</p></div></div>
+</section>
+
+<!-- ============ METODE ============ -->
+<section id="v-metode" class="view" hidden aria-labelledby="h-met">
+  <div class="hero"><div class="wrap">
+    <p class="eyebrow">Transparansi</p>
+    <h1 id="h-met">Metode, aturan,<br><span class="hl">dan sumber data</span></h1>
+    <p class="lede">Setiap lampu hijau dan merah di alat ini bisa ditelusuri ke pasal sumbernya. Kalau OJK mengubah aturan, tabel di bawah dan hitungannya diperbarui bersamaan.</p>
+  </div><svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34c120-22 240-22 360 0s240 22 360 0 240-22 360 0 240 22 360 0v26H0z"/></svg></div>
+  <div class="wrap" id="metode-body"></div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand brand-foot" href="#kalkulator"><span class="lamp" aria-hidden="true"><i></i><i></i><i></i></span><span class="brand-txt"><b>Lampu Pindar</b><small>Cek Dulu Sebelum Pinjam</small></span></a>
+        <p>Alat periksa independen agar masyarakat bisa menilai tawaran pinjaman daring dengan aturan yang sama yang dipakai regulator.</p>
+      </div>
+      <div>
+        <h4>Dasar aturan dan data</h4>
+        <ul>
+          <li>SEOJK 19/SEOJK.06/2025</li>
+          <li>POJK 40 Tahun 2024</li>
+          <li>Statistik LPBBTI OJK</li>
+          <li><a href="#metode">Lihat metode lengkap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 <span class="sig">mrk29</span> Muhammad Ramadhani Kesuma · Lab. Teknologi Keuangan, FEB Universitas Mulawarman, Samarinda</p>
+      <p>Versi 1.0 · Alat edukasi, bukan nasihat keuangan. Lampu Pindar tidak berafiliasi dengan dan tidak mewakili OJK.</p>
+    </div>
+  </div>
+</footer>
+
+<div id="tip" class="tip" role="tooltip" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
